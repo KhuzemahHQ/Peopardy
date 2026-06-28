@@ -4,50 +4,50 @@
       "name": "Science",
       "questions": [
         { "id": "sci_200", "value": 200, "clue": "This is the chemical symbol for Gold.", "answer": "What is Au?" },
-        { "id": "sci_400", "value": 400, "clue": "This planet is known as the Red Planet.", "answer": "What is Mars?" },
-        { "id": "sci_600", "value": 600, "clue": "The powerhouse of the cell.", "answer": "What is the Mitochondria?" },
-        { "id": "sci_800", "value": 800, "clue": "This process involves plants making their own food.", "answer": "What is Photosynthesis?" },
-        { "id": "sci_1000", "value": 1000, "clue": "This scientist developed the theory of general relativity.", "answer": "Who is Albert Einstein?" }
+        { "id": "sci_400", "value": 400, "clue": "This planet in our solar system is famous for its prominent ring system.", "answer": "What is Saturn?" },
+        { "id": "sci_600", "value": 600, "clue": "This is the most abundant gas in the Earth's atmosphere.", "answer": "What is Nitrogen?" },
+        { "id": "sci_800", "value": 800, "clue": "This fundamental force of nature keeps the planets in orbit around the sun.", "answer": "What is Gravity?" },
+        { "id": "sci_1000", "value": 1000, "clue": "This physicist famously formulated the uncertainty principle in quantum mechanics.", "answer": "Who is Werner Heisenberg?" }
       ]
     },
     {
       "name": "History",
       "questions": [
         { "id": "his_200", "value": 200, "clue": "He was the first President of the United States.", "answer": "Who is George Washington?" },
-        { "id": "his_400", "value": 400, "clue": "This ship sank on its maiden voyage in 1912.", "answer": "What is the Titanic?" },
-        { "id": "his_600", "value": 600, "clue": "This empire was ruled by Julius Caesar.", "answer": "What is the Roman Empire?" },
-        { "id": "his_800", "value": 800, "clue": "This war was fought between the North and South regions of the US.", "answer": "What is the American Civil War?" },
-        { "id": "his_1000", "value": 1000, "clue": "She was the last active ruler of the Ptolemaic Kingdom of Egypt.", "answer": "Who is Cleopatra?" }
+        { "id": "his_400", "value": 400, "clue": "This ancient Egyptian Queen was the last active ruler of the Ptolemaic Kingdom.", "answer": "Who is Cleopatra?" },
+        { "id": "his_600", "value": 600, "clue": "This year marked the historic fall of the Berlin Wall.", "answer": "What is 1989?" },
+        { "id": "his_800", "value": 800, "clue": "This series of conflicts was fought between England and France from 1337 to 1453.", "answer": "What is the Hundred Years' War?" },
+        { "id": "his_1000", "value": 1000, "clue": "This Pre-Columbian civilization built the ancient city of Machu Picchu.", "answer": "Who are the Incas?" }
       ]
     },
     {
       "name": "Pop Culture",
       "questions": [
         { "id": "pop_200", "value": 200, "clue": "This pop star is known for hits like 'Shake It Off' and 'Blank Space'.", "answer": "Who is Taylor Swift?" },
-        { "id": "pop_400", "value": 400, "clue": "In the Marvel Cinematic Universe, his real name is Tony Stark.", "answer": "Who is Iron Man?" },
-        { "id": "pop_600", "value": 600, "clue": "This animated movie features a snowman named Olaf.", "answer": "What is Frozen?" },
-        { "id": "pop_800", "value": 800, "clue": "He played the character of Jack Dawson in the movie Titanic.", "answer": "Who is Leonardo DiCaprio?" },
-        { "id": "pop_1000", "value": 1000, "clue": "This TV show features families like the Starks, Lannisters, and Targaryens.", "answer": "What is Game of Thrones?" }
+        { "id": "pop_400", "value": 400, "clue": "This animated movie features a snowman named Olaf and Princess Elsa.", "answer": "What is Frozen?" },
+        { "id": "pop_600", "value": 600, "clue": "He directed the critically acclaimed 1994 film 'Pulp Fiction'.", "answer": "Who is Quentin Tarantino?" },
+        { "id": "pop_800", "value": 800, "clue": "This film currently holds the record for the highest-grossing movie of all time at the global box office.", "answer": "What is Avatar?" },
+        { "id": "pop_1000", "value": 1000, "clue": "This artist holds the all-time record for the most Grammy Awards won by a single individual.", "answer": "Who is Beyoncé?" }
       ]
     },
     {
       "name": "Geography",
       "questions": [
         { "id": "geo_200", "value": 200, "clue": "This is the largest ocean on Earth.", "answer": "What is the Pacific Ocean?" },
-        { "id": "geo_400", "value": 400, "clue": "This city is the capital of Japan.", "answer": "What is Tokyo?" },
-        { "id": "geo_600", "value": 600, "clue": "This is the longest river in the world.", "answer": "What is the Nile River?" },
-        { "id": "geo_800", "value": 800, "clue": "This country is known for a giant wall visible from space (mythically).", "answer": "What is China?" },
-        { "id": "geo_1000", "value": 1000, "clue": "This is the smallest country in the world by area.", "answer": "What is Vatican City?" }
+        { "id": "geo_400", "value": 400, "clue": "This country has the longest coastline in the world.", "answer": "What is Canada?" },
+        { "id": "geo_600", "value": 600, "clue": "This is the smallest independent country in the world by land area.", "answer": "What is Vatican City?" },
+        { "id": "geo_800", "value": 800, "clue": "This mountain range spans across seven countries along the western edge of South America.", "answer": "What are the Andes?" },
+        { "id": "geo_1000", "value": 1000, "clue": "This city is the capital of Mongolia and its name translates to 'Red Hero'.", "answer": "What is Ulaanbaatar?" }
       ]
     },
     {
       "name": "Sports",
       "questions": [
-        { "id": "spt_200", "value": 200, "clue": "This sport is known as the 'beautiful game'.", "answer": "What is Soccer (or Football)?" },
-        { "id": "spt_400", "value": 400, "clue": "He is often referred to as 'His Airness' in basketball.", "answer": "Who is Michael Jordan?" },
-        { "id": "spt_600", "value": 600, "clue": "This event takes place every four years and features winter and summer games.", "answer": "What are the Olympics?" },
-        { "id": "spt_800", "value": 800, "clue": "This tennis tournament is played on grass courts in London.", "answer": "What is Wimbledon?" },
-        { "id": "spt_1000", "value": 1000, "clue": "In American Football, this game determines the NFL champion.", "answer": "What is the Super Bowl?" }
+        { "id": "spt_200", "value": 200, "clue": "This sport is globally known as the 'beautiful game'.", "answer": "What is Soccer (or Football)?" },
+        { "id": "spt_400", "value": 400, "clue": "This American swimmer holds the record for the most Olympic gold medals of all time.", "answer": "Who is Michael Phelps?" },
+        { "id": "spt_600", "value": 600, "clue": "This South American country hosted and won the first ever FIFA World Cup in 1930.", "answer": "What is Uruguay?" },
+        { "id": "spt_800", "value": 800, "clue": "This tennis legend has won a record 14 French Open men's singles titles.", "answer": "Who is Rafael Nadal?" },
+        { "id": "spt_1000", "value": 1000, "clue": "This NHL legend's iconic number, 99, is retired league-wide.", "answer": "Who is Wayne Gretzky?" }
       ]
     }
   ]
