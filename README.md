@@ -32,4 +32,10 @@ To get the app up and running on your local machine, follow these steps:
    - Click "Return to Board" to go back to the grid. The answered question will be greyed out.
 
 ## Modifying Questions
-The game comes with 25 dummy questions to get you started. To add your own custom questions, simply open the `src/gameData.json` file and edit the text for the categories, clues, and answers. The app will automatically update with your new content!
+The game comes with 25 default questions to get you started. 
+
+**Option 1: Upload at runtime (Recommended)**
+You can easily load any custom game data file by clicking the **Upload Custom Game** button in the top left corner of the app. Select a `.json` file that follows the same format as the default `gameData.json`, and the board will instantly update! This makes it incredibly easy to share question files and load them on the fly without changing code.
+
+**Option 2: Hardcode into the app**
+To permanently add your own custom questions to the default repository, simply open the `src/gameData.json` file and edit the text for the categories, clues, and answers. The app will automatically compile with your new content.

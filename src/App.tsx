@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import gameData from './gameData.json';
+import defaultGameData from './gameData.json';
 
 interface Clue {
   id: string;
@@ -9,11 +9,21 @@ interface Clue {
   answer: string;
 }
 
+interface Category {
+  name: string;
+  questions: Clue[];
+}
+
+interface GameData {
+  categories: Category[];
+}
+
 function App() {
   const [activeClue, setActiveClue] = useState<Clue | null>(null);
   const [revealedClues, setRevealedClues] = useState<Set<string>>(new Set());
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>('elegant');
+  const [data, setData] = useState<GameData>(defaultGameData as GameData);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -39,9 +49,39 @@ function App() {
     setShowAnswer(false);
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const json = JSON.parse(e.target?.result as string);
+        if (json && json.categories) {
+          setData(json as GameData);
+          setRevealedClues(new Set()); // Reset board
+        } else {
+          alert('Invalid JSON format. Must contain a "categories" array.');
+        }
+      } catch (error) {
+        alert('Error parsing JSON file.');
+      }
+    };
+    reader.readAsText(file);
+  };
+
   return (
     <div className="app-container">
       <div className="navbar">
+        <label className="file-upload-label">
+          Upload Custom Game
+          <input 
+            type="file" 
+            accept=".json" 
+            onChange={handleFileUpload} 
+            className="file-input"
+          />
+        </label>
         <select 
           className="theme-select" 
           value={theme} 
@@ -62,7 +102,7 @@ function App() {
 
       {/* Main Board */}
       <main className="board">
-        {gameData.categories.map((category) => (
+        {data.categories.map((category) => (
           <div key={category.name} className="category-header">
             {category.name}
           </div>
@@ -73,8 +113,9 @@ function App() {
             We transpose this to render rows. */}
         {[0, 1, 2, 3, 4].map((rowIndex) => (
           <React.Fragment key={`row-${rowIndex}`}>
-            {gameData.categories.map((category) => {
+            {data.categories.map((category) => {
               const clue = category.questions[rowIndex];
+              if (!clue) return <div key={`${category.name}-${rowIndex}`} className="clue-card disabled"></div>;
               const isRevealed = revealedClues.has(clue.id);
               
               return (
