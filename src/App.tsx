@@ -11,19 +11,64 @@ interface Clue {
 
 interface Category {
   name: string;
-  questions: Clue[];
+  questions: (Clue | null)[];
 }
 
 interface GameData {
   categories: Category[];
 }
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const newArr = [...array];
+  for (let i = newArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+  }
+  return newArr;
+};
+
+const processGameData = (rawData: GameData): GameData => {
+  if (rawData.categories.length < 5) {
+    throw new Error('Game data must have at least 5 categories.');
+  }
+
+  // Pick 5 categories randomly
+  const pickedCategories = shuffleArray(rawData.categories).slice(0, 5);
+  const targetValues = [200, 400, 600, 800, 1000];
+
+  const processedCategories = pickedCategories.map(cat => {
+    const pickedQuestions = targetValues.map(value => {
+      // Find all questions in this category with the target value
+      const candidates = cat.questions.filter(q => q && q.value === value);
+      if (candidates.length > 0) {
+        // Pick one at random
+        return candidates[Math.floor(Math.random() * candidates.length)];
+      }
+      // Leave space blank if no question of this difficulty exists
+      return null;
+    });
+
+    return {
+      name: cat.name,
+      questions: pickedQuestions
+    };
+  });
+
+  return { categories: processedCategories };
+};
+
 function App() {
   const [activeClue, setActiveClue] = useState<Clue | null>(null);
   const [revealedClues, setRevealedClues] = useState<Set<string>>(new Set());
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>('elegant');
-  const [data, setData] = useState<GameData>(defaultGameData as GameData);
+  const [data, setData] = useState<GameData>(() => {
+    try {
+      return processGameData(defaultGameData as GameData);
+    } catch {
+      return defaultGameData as GameData;
+    }
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -70,7 +115,8 @@ function App() {
           throw new Error('Invalid JSON structure. Each category must have a "name" and a "questions" array.');
         }
 
-        setData(json as GameData);
+        const processed = processGameData(json as GameData);
+        setData(processed);
         setRevealedClues(new Set()); // Reset board
       } catch (error: any) {
         alert(error.message || 'Error parsing JSON file.');
@@ -80,9 +126,6 @@ function App() {
     // Clear input so the same file can be uploaded again if needed
     event.target.value = '';
   };
-
-  const maxQuestions = Math.max(...data.categories.map(c => c.questions?.length || 0));
-  const rowIndices = Array.from({ length: maxQuestions }, (_, i) => i);
 
   return (
     <div className="app-container">
@@ -115,15 +158,15 @@ function App() {
       </header>
 
       {/* Main Board */}
-      <main className="board" style={{ gridTemplateColumns: `repeat(${data.categories.length}, 1fr)` }}>
+      <main className="board">
         {data.categories.map((category, index) => (
           <div key={`cat-${index}`} className="category-header">
             {category.name}
           </div>
         ))}
         
-        {/* Render rows dynamically based on maxQuestions */}
-        {rowIndices.map((rowIndex) => (
+        {/* Render exactly 5 rows to stick to the 5x5 grid */}
+        {[0, 1, 2, 3, 4].map((rowIndex) => (
           <React.Fragment key={`row-${rowIndex}`}>
             {data.categories.map((category, catIndex) => {
               const clue = category.questions[rowIndex];
