@@ -1,16 +1,35 @@
-# React + Vite
+# Peopardy
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A custom, self-implemented game of Jeopardy built with React and Vite.
 
-Currently, two official plugins are available:
+## Overview
+Peopardy is designed for you to present a Jeopardy-style trivia game on a shared screen. It features a 5x5 grid with categories and values, a sleek dark mode UI with a classic blue/gold color scheme, and an intuitive flow to reveal answers and track questions that have already been clicked.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How to Run Locally
 
-## React Compiler
+To get the app up and running on your local machine, follow these steps:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone https://github.com/KhuzemahHQ/Peopardy.git
+   cd Peopardy
+   ```
 
-## Expanding the Oxlint configuration
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Play the Game**:
+   - Open your browser and navigate to the local URL provided in the terminal (usually `http://localhost:5173`).
+   - Click on any dollar value in the grid to see the clue.
+   - Click "Reveal Answer" to show the answer to your audience.
+   - Click "Return to Board" to go back to the grid. The answered question will be greyed out.
+
+## Modifying Questions
+The game comes with 25 dummy questions to get you started. To add your own custom questions, simply open the `src/gameData.json` file and edit the text for the categories, clues, and answers. The app will automatically update with your new content!
