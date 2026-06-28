@@ -72,7 +72,7 @@
 .clue-card.disabled {
   background-color: #333333;
   color: #555555;
-  cursor: default;
+  cursor: pointer;
   text-shadow: none;
   border-color: #222222;
   box-shadow: none;

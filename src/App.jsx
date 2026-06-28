@@ -8,10 +8,8 @@ function App() {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const handleClueClick = (clue) => {
-    if (!revealedClues.has(clue.id)) {
-      setActiveClue(clue);
-      setShowAnswer(false);
-    }
+    setActiveClue(clue);
+    setShowAnswer(false);
   };
 
   const handleReveal = () => {
@@ -20,6 +18,11 @@ function App() {
 
   const handleReturn = () => {
     setRevealedClues(new Set(revealedClues).add(activeClue.id));
+    setActiveClue(null);
+    setShowAnswer(false);
+  };
+
+  const handleCancel = () => {
     setActiveClue(null);
     setShowAnswer(false);
   };
@@ -73,9 +76,14 @@ function App() {
             
             <div className="modal-controls">
               {!showAnswer ? (
-                <button className="btn" onClick={handleReveal}>
-                  Reveal Answer
-                </button>
+                <>
+                  <button className="btn btn-secondary" onClick={handleCancel}>
+                    Cancel
+                  </button>
+                  <button className="btn" onClick={handleReveal}>
+                    Reveal Answer
+                  </button>
+                </>
               ) : (
                 <button className="btn btn-secondary" onClick={handleReturn}>
                   Return to Board
