@@ -1,0 +1,165 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.category-header {
+  background-color: var(--dark-blue);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid var(--primary-gold);
+  border-radius: 8px;
+  padding: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.clue-card {
+  background-color: var(--primary-blue);
+  color: var(--primary-gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid var(--dark-blue);
+  border-radius: 8px;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.2s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.clue-card:hover:not(.disabled) {
+  transform: scale(1.02);
+  background-color: #0811f5;
+  box-shadow: 0 0 15px rgba(6, 12, 233, 0.8);
+  border-color: var(--primary-gold);
+}
+
+.clue-card.disabled {
+  background-color: #333333;
+  color: #555555;
+  cursor: default;
+  text-shadow: none;
+  border-color: #222222;
+  box-shadow: none;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 40px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.modal-clue {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-light);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.modal-answer {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-gold);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn {
+  background-color: var(--primary-gold);
+  color: var(--dark-blue);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #ffd633;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+}
+
+.btn-secondary {
+  background-color: #333333;
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: #444444;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}

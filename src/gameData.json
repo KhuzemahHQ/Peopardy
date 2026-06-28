@@ -1,0 +1,54 @@
+{
+  "categories": [
+    {
+      "name": "Science",
+      "questions": [
+        { "id": "sci_200", "value": 200, "clue": "This is the chemical symbol for Gold.", "answer": "What is Au?" },
+        { "id": "sci_400", "value": 400, "clue": "This planet is known as the Red Planet.", "answer": "What is Mars?" },
+        { "id": "sci_600", "value": 600, "clue": "The powerhouse of the cell.", "answer": "What is the Mitochondria?" },
+        { "id": "sci_800", "value": 800, "clue": "This process involves plants making their own food.", "answer": "What is Photosynthesis?" },
+        { "id": "sci_1000", "value": 1000, "clue": "This scientist developed the theory of general relativity.", "answer": "Who is Albert Einstein?" }
+      ]
+    },
+    {
+      "name": "History",
+      "questions": [
+        { "id": "his_200", "value": 200, "clue": "He was the first President of the United States.", "answer": "Who is George Washington?" },
+        { "id": "his_400", "value": 400, "clue": "This ship sank on its maiden voyage in 1912.", "answer": "What is the Titanic?" },
+        { "id": "his_600", "value": 600, "clue": "This empire was ruled by Julius Caesar.", "answer": "What is the Roman Empire?" },
+        { "id": "his_800", "value": 800, "clue": "This war was fought between the North and South regions of the US.", "answer": "What is the American Civil War?" },
+        { "id": "his_1000", "value": 1000, "clue": "She was the last active ruler of the Ptolemaic Kingdom of Egypt.", "answer": "Who is Cleopatra?" }
+      ]
+    },
+    {
+      "name": "Pop Culture",
+      "questions": [
+        { "id": "pop_200", "value": 200, "clue": "This pop star is known for hits like 'Shake It Off' and 'Blank Space'.", "answer": "Who is Taylor Swift?" },
+        { "id": "pop_400", "value": 400, "clue": "In the Marvel Cinematic Universe, his real name is Tony Stark.", "answer": "Who is Iron Man?" },
+        { "id": "pop_600", "value": 600, "clue": "This animated movie features a snowman named Olaf.", "answer": "What is Frozen?" },
+        { "id": "pop_800", "value": 800, "clue": "He played the character of Jack Dawson in the movie Titanic.", "answer": "Who is Leonardo DiCaprio?" },
+        { "id": "pop_1000", "value": 1000, "clue": "This TV show features families like the Starks, Lannisters, and Targaryens.", "answer": "What is Game of Thrones?" }
+      ]
+    },
+    {
+      "name": "Geography",
+      "questions": [
+        { "id": "geo_200", "value": 200, "clue": "This is the largest ocean on Earth.", "answer": "What is the Pacific Ocean?" },
+        { "id": "geo_400", "value": 400, "clue": "This city is the capital of Japan.", "answer": "What is Tokyo?" },
+        { "id": "geo_600", "value": 600, "clue": "This is the longest river in the world.", "answer": "What is the Nile River?" },
+        { "id": "geo_800", "value": 800, "clue": "This country is known for a giant wall visible from space (mythically).", "answer": "What is China?" },
+        { "id": "geo_1000", "value": 1000, "clue": "This is the smallest country in the world by area.", "answer": "What is Vatican City?" }
+      ]
+    },
+    {
+      "name": "Sports",
+      "questions": [
+        { "id": "spt_200", "value": 200, "clue": "This sport is known as the 'beautiful game'.", "answer": "What is Soccer (or Football)?" },
+        { "id": "spt_400", "value": 400, "clue": "He is often referred to as 'His Airness' in basketball.", "answer": "Who is Michael Jordan?" },
+        { "id": "spt_600", "value": 600, "clue": "This event takes place every four years and features winter and summer games.", "answer": "What are the Olympics?" },
+        { "id": "spt_800", "value": 800, "clue": "This tennis tournament is played on grass courts in London.", "answer": "What is Wimbledon?" },
+        { "id": "spt_1000", "value": 1000, "clue": "In American Football, this game determines the NFL champion.", "answer": "What is the Super Bowl?" }
+      ]
+    }
+  ]
+}
