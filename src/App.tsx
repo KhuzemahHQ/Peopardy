@@ -57,18 +57,32 @@ function App() {
     reader.onload = (e) => {
       try {
         const json = JSON.parse(e.target?.result as string);
-        if (json && json.categories) {
-          setData(json as GameData);
-          setRevealedClues(new Set()); // Reset board
-        } else {
-          alert('Invalid JSON format. Must contain a "categories" array.');
+        if (!json || !Array.isArray(json.categories)) {
+          throw new Error('Invalid JSON format. Must contain a "categories" array.');
         }
-      } catch (error) {
-        alert('Error parsing JSON file.');
+
+        // Basic validation of structure
+        const isValid = json.categories.every((cat: any) => 
+          typeof cat.name === 'string' && Array.isArray(cat.questions)
+        );
+
+        if (!isValid) {
+          throw new Error('Invalid JSON structure. Each category must have a "name" and a "questions" array.');
+        }
+
+        setData(json as GameData);
+        setRevealedClues(new Set()); // Reset board
+      } catch (error: any) {
+        alert(error.message || 'Error parsing JSON file.');
       }
     };
     reader.readAsText(file);
+    // Clear input so the same file can be uploaded again if needed
+    event.target.value = '';
   };
+
+  const maxQuestions = Math.max(...data.categories.map(c => c.questions?.length || 0));
+  const rowIndices = Array.from({ length: maxQuestions }, (_, i) => i);
 
   return (
     <div className="app-container">
@@ -101,21 +115,19 @@ function App() {
       </header>
 
       {/* Main Board */}
-      <main className="board">
-        {data.categories.map((category) => (
-          <div key={category.name} className="category-header">
+      <main className="board" style={{ gridTemplateColumns: `repeat(${data.categories.length}, 1fr)` }}>
+        {data.categories.map((category, index) => (
+          <div key={`cat-${index}`} className="category-header">
             {category.name}
           </div>
         ))}
         
-        {/* We need to render rows of values across categories.
-            The data is structured by category, then questions.
-            We transpose this to render rows. */}
-        {[0, 1, 2, 3, 4].map((rowIndex) => (
+        {/* Render rows dynamically based on maxQuestions */}
+        {rowIndices.map((rowIndex) => (
           <React.Fragment key={`row-${rowIndex}`}>
-            {data.categories.map((category) => {
+            {data.categories.map((category, catIndex) => {
               const clue = category.questions[rowIndex];
-              if (!clue) return <div key={`${category.name}-${rowIndex}`} className="clue-card disabled"></div>;
+              if (!clue) return <div key={`empty-${catIndex}-${rowIndex}`} className="clue-card disabled"></div>;
               const isRevealed = revealedClues.has(clue.id);
               
               return (
