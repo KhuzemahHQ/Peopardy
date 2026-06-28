@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import gameData from './gameData.json';
 
@@ -13,6 +13,11 @@ function App() {
   const [activeClue, setActiveClue] = useState<Clue | null>(null);
   const [revealedClues, setRevealedClues] = useState<Set<string>>(new Set());
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string>('elegant');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const handleClueClick = (clue: Clue) => {
     setActiveClue(clue);
@@ -36,6 +41,20 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="navbar">
+        <select 
+          className="theme-select" 
+          value={theme} 
+          onChange={(e) => setTheme(e.target.value)}
+        >
+          <option value="elegant">Elegant Dark (Default)</option>
+          <option value="classic">Classic Jeopardy</option>
+          <option value="cyberpunk">Cyberpunk Neon</option>
+          <option value="retro">Retro Sunset</option>
+          <option value="emerald">Emerald City</option>
+        </select>
+      </div>
+
       <header className="header">
         <h1>Peopardy</h1>
       </header>

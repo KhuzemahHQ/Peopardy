@@ -17,7 +17,26 @@
   color: var(--primary-gold);
   text-transform: uppercase;
   letter-spacing: 5px;
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+  text-shadow: 0 0 10px var(--shadow-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.theme-select {
+  background-color: var(--dark-blue);
+  color: var(--text-light);
+  border: 1px solid var(--primary-gold);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  cursor: pointer;
+  outline: none;
 }
 
 .board {
@@ -57,24 +76,24 @@
   cursor: pointer;
   border: 2px solid var(--dark-blue);
   border-radius: 8px;
-  transition: transform 0.2s, background-color 0.3s, box-shadow 0.2s;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.2s, border-color 0.3s;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
 .clue-card:hover:not(.disabled) {
   transform: scale(1.02);
-  background-color: #0811f5;
-  box-shadow: 0 0 15px rgba(6, 12, 233, 0.8);
+  background-color: var(--hover-color);
+  box-shadow: 0 0 15px var(--shadow-color);
   border-color: var(--primary-gold);
 }
 
 .clue-card.disabled {
-  background-color: #333333;
+  background-color: var(--disabled-bg);
   color: #555555;
   cursor: pointer;
   text-shadow: none;
-  border-color: #222222;
+  border-color: var(--disabled-border);
   box-shadow: none;
 }
 
