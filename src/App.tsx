@@ -49,6 +49,7 @@ function App() {
         >
           <option value="elegant">Elegant Dark (Default)</option>
           <option value="classic">Classic Jeopardy</option>
+          <option value="mogul">Mogul Money</option>
           <option value="cyberpunk">Cyberpunk Neon</option>
           <option value="retro">Retro Sunset</option>
           <option value="emerald">Emerald City</option>

@@ -55,6 +55,17 @@
   --shadow-color: rgba(105, 240, 174, 0.5);
 }
 
+[data-theme="mogul"] {
+  --bg-color: #210a3d;
+  --primary-blue: #7c0be2;
+  --primary-gold: #f2c76e;
+  --dark-blue: #140526;
+  --hover-color: #9222fa;
+  --disabled-bg: #3d1466;
+  --disabled-border: #210a3d;
+  --shadow-color: rgba(242, 199, 110, 0.5);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
