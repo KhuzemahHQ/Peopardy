@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import './App.css';
 import gameData from './gameData.json';
 
-function App() {
-  const [activeClue, setActiveClue] = useState(null);
-  const [revealedClues, setRevealedClues] = useState(new Set());
-  const [showAnswer, setShowAnswer] = useState(false);
+interface Clue {
+  id: string;
+  value: number;
+  clue: string;
+  answer: string;
+}
 
-  const handleClueClick = (clue) => {
+function App() {
+  const [activeClue, setActiveClue] = useState<Clue | null>(null);
+  const [revealedClues, setRevealedClues] = useState<Set<string>>(new Set());
+  const [showAnswer, setShowAnswer] = useState<boolean>(false);
+
+  const handleClueClick = (clue: Clue) => {
     setActiveClue(clue);
     setShowAnswer(false);
   };
